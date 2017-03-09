@@ -3,6 +3,7 @@
  */
 
 
+
 function handleButtonClick(){
     if(!document.getElementById("inputM").value ||
         !document.getElementById("inputT").value ||
@@ -26,7 +27,15 @@ function handleButtonClick(){
 		alert("Please input m elements!");
 		return 0;
 	}
-
+    var table = document.getElementById("table");
+    var rowCount = table.getElementsByTagName("tr").length;
+    if (rowCount > 1){
+        for (var rowIndex = rowCount - 1; rowIndex > 0; rowIndex--){
+            //var deleteRow = table.deleteRow(i);
+            table.deleteRow(rowIndex);
+            //alert(i);
+        }
+    }
 	for (var i = 0; i < arrA.length; i++){
 		arrA[i] = Number(arrA[i]);
 		if (arrA[i] > 15 || arrA[i] < 0){
@@ -42,14 +51,15 @@ function handleButtonClick(){
 		arrB[i] = decimalToBinary(arrB[i]);
 	}
 
+
 	var table = document.getElementById("table");
-    var rowIndex = 1;
+    //var rowIndex = 1;
     var cellIndex = 0;
-    for (var i = 1; i <= m; i++){
-        rowIndex = i;
+    for (var rowIndex = 1; rowIndex <= m; rowIndex++){
+        i = rowIndex - 1;
         var row = table.insertRow();
         var cell = row.insertCell(0);
-        cell.innerHTML = "A"+i+" = "+printBinary(arrA[i-1])+"<br>"+ "B"+i+" = "+printBinary(arrB[i-1])+"<br>";
+        cell.innerHTML = "A"+i+" = "+printBinary(arrA[i])+"<br>"+ "B"+i+" = "+printBinary(arrB[i])+"<br>";
     }
 
 
