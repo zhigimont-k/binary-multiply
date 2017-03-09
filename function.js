@@ -163,18 +163,13 @@ function binaryMultiply(a,b){
     var partSum = [];
     var res = [];
     for (var i = 0; i < b.length; i++){
-        //alert("i = "+i);
         res = shiftLeft(res);
         document.write("<< "+printBinary(resToString(res))+"<br>");
-        //alert("res = shiftLeft(res): "+res);
         partSum = multiply1Bin(a, b[i]);
-        //document.write(printBinary(resToString(a))+" * "+Number(b[i])+"=<br>"+printBinary(resToString(res))+"<br>");
         document.write(printBinary(resToString(a))+" * "+Number(b[i])+"=<br>"+printBinary(resToString(partSum))+"<br>");
-        //alert("partSum = multiply1Bin(a, b[i])"+partSum);
         document.write(printBinary(resToString(res))+" + "+printBinary(resToString(partSum))+"=<br>");
         res = binarySum(res, partSum);
         document.write(printBinary(resToString(res))+"<br>");
-        //alert("res = binarySum(res, partSum);"+res);
     }
     return res;
 }
