@@ -1,11 +1,27 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Лабораторная работа №1 по МРЗвИС</title>
     <script src="function.js"></script>
     <script src="toBinary.js">
-    </script></script>
+    </script>
+    <style type="text/css">
+    TABLE {
+        background: #8fb6aa; /* Цвет фона таблицы */
+        color: white; /* Цвет текста */
+        border: 1px solid black;
+    }
+    TD {
+        background: #2e585e; /* Цвет фона ячеек */
+        border: 1px solid black;
+        padding: 15px;
+    }
+    TH {
+        border: 1px solid black;
+        padding: 15px;
+    }
+</style>
 </head>
 <body>
 <h1>Binary multiply</h1>
@@ -18,5 +34,13 @@ Array B: <input type="text" id="inputB"> T: <input type="text" id="inputT">
 <br>
 <br>
 <input type="button" value="Multiply" onclick="handleButtonClick()">
+<br><br>
+    <table id="table">
+    <tr>
+    <th>Pair</th>
+    <th>Act.1</th>
+    <th>Act.2</th>
+    </tr>
+    </table>
 </body>
 </html>
