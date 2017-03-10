@@ -31,9 +31,7 @@ function handleButtonClick(){
     var rowCount = table.getElementsByTagName("tr").length;
     if (rowCount > 1){
         for (var rowIndex = rowCount - 1; rowIndex > 0; rowIndex--){
-            //var deleteRow = table.deleteRow(i);
             table.deleteRow(rowIndex);
-            //alert(i);
         }
     }
 	for (var i = 0; i < arrA.length; i++){
@@ -54,12 +52,17 @@ function handleButtonClick(){
 
 	var table = document.getElementById("table");
     //var rowIndex = 1;
-    var cellIndex = 0;
+    //var cellIndex = 0;
+    var time = 0;
     for (var rowIndex = 1; rowIndex <= m; rowIndex++){
         i = rowIndex - 1;
         var row = table.insertRow();
         var cell = row.insertCell(0);
-        cell.innerHTML = "A"+i+" = "+printBinary(arrA[i])+"<br>"+ "B"+i+" = "+printBinary(arrB[i])+"<br>";
+        cell.innerHTML = "A"+i+" = "+printBinary(arrA[i])+"<br>"+ "B"+i+" = "+printBinary(arrB[i])+"<br>"+
+        "Time: "+time;
+        for (var cellIndex = 1; cellIndex < 9; cellIndex++){
+            row.insertCell(cellIndex);
+        }
     }
 
 
