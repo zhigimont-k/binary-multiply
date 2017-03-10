@@ -31,7 +31,7 @@ function decimalToBinary(n) {
     n = (n >>> 0).toString(2);
     return n;
 }
-
+//TODO: убрать лишние нули в начале (типа 0000 0010 -> 0010)
 function printBinary(n) {
     var str = String(n);
     if (str.length % 4) {
@@ -75,7 +75,8 @@ function multiply1Bin(a, b){
             } else {
                 c[i] = 1;
             }
-        } else {
+        }
+        if (b == 0){
             c[i] = 0;
         }
     }

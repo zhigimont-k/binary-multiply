@@ -15,7 +15,7 @@ function handleButtonClick(){
 	var arrA = document.getElementById("inputA").value;
 	var arrB = document.getElementById("inputB").value;
 	var m = document.getElementById("inputM").value;
-	var t = document.getElementById("inputT").value;
+	var t = Number(document.getElementById("inputT").value);
 
 	arrA = arrA.split(" ");
 	if(arrA.length != document.getElementById("inputM").value){
@@ -46,7 +46,7 @@ function handleButtonClick(){
 		if (arrB[i] > 15 || arrB[i] < 0){
 			alert("Please input number in the [0; 15] interval!");
 		}
-		arrB[i] = decimalToBinary(arrB[i]);
+		arrB[i] = printBinary(decimalToBinary(arrB[i]));
 	}
 
 
@@ -71,202 +71,57 @@ function handleButtonClick(){
     var boolArrA = [];
     var boolArrB = [];
     var arrC = [];
-    var partSum = [];
 
-    // новые массивы, чтобы потом без преобразования типов выводить А и В в виде чисел, а не булевых переменных
     for (var index = 0; index < m; index++){
         boolArrA[index] = getBoolArray(arrA[index]);
         boolArrB[index] = getBoolArray(arrB[index]);
     }
-    //alert("test");
     for (var index = 0; index < m; index++){
-        //var res = [];
-            //res = shiftLeft(res);
-        /*arrC[index] = shiftLeft(arrC[index]);
-        if (index){
-            time+=t;
-        }
-        partSum[index] = multiply1Bin(boolArrA[index], boolArrB[index][index]);
-        time+=t;
-            //res = binarySum(res, partSum);
-        arrC[index] = binarySum(arrC[index], partSum[index]);
-        time+=t;*/
-        arrC[index] = binaryMultiply(boolArrA[index], boolArrB[index]);
+        var rowIndex = index+1;
+        arrC[index] = binaryMultiply(boolArrA[index], boolArrB[index], rowIndex, table, time, t);
 
     }
-	for (var i = 0; i < m; i++){
+	/*for (var i = 0; i < m; i++){
         //alert(binaryToDecimal(resToString(arrC[i])));
         var resultCell = table.rows[i+1].cells[8];
-        resultCell.innerHTML = "Result: "+ binaryToDecimal(resToString(arrC[i]));
-    }
+        resultCell.innerHTML = binaryToDecimal(arrA[i])+" * "+binaryToDecimal(arrB[i])+
+            " = "+ binaryToDecimal(resToString(arrC[i]))+"<br>"+
+        "Elapsed time: "+time;
+    }*/
 }
+//TODO: см. printBinary в functions.js
+//TODO: конвейер
+//TODO: таймер
 
-
-for (var i = 0; i < A.length; i++){
-    document.write("A["+i+"]: "+A[i]);
-    A[i] = decimalToBinary(A[i]);
-    document.write(" = "+printBinary(A[i]));
-    document.write("<br>");
-    A[i] = getBoolArray(A[i]);
-    document.write("B["+i+"]: "+B[i]);
-    B[i] = decimalToBinary(B[i]);
-    document.write(" = "+printBinary(B[i]));
-    document.write("<br>");
-    B[i] = getBoolArray(B[i]);
-    C[i] = binaryMultiply(A[i], B[i]);
-    C[i] = binaryToDecimal(resToString(C[i]));
-    document.write("Result: "+C[i]+"<br>***************************************************<br>");
-}
-
-function binaryToDecimal(n) {
-    n = parseInt(n, 2);
-    return n;
-}
-
-function decimalToBinary(n) {
-    n = Number(n);
-    n = (n >>> 0).toString(2);
-    return n;
-}
-
-function printBinary(n) {
-    var str = String(n);
-    if (str.length % 4) {
-        if (str.length % 4 === 1) {
-            str = str.replace(/(\d)(?=(\d\d\d\d)+([^\d]|$))/g, '$1 ');
-            return("000" + str);
-        }
-        if (str.length % 4 === 2) {
-            str = str.replace(/(\d)(?=(\d\d\d\d)+([^\d]|$))/g, '$1 ');
-            return("00" + str);
-        }
-        if (str.length % 4 === 3) {
-            str = str.replace(/(\d)(?=(\d\d\d\d)+([^\d]|$))/g, '$1 ');
-            return("0" + str);
-        }
-
-    }
-    str = str.replace(/(\d)(?=(\d\d\d\d)+([^\d]|$))/g, '$1 ');
-    return(str);
-}
-
-function getBoolArray(str){
-    var arr = String(str);
-    arr = str.split("");
-    for (var i = 0; i < arr.length; i++){
-        arr[i] = Number(arr[i]); // т.к. строка всегда true
-        arr[i] = Boolean(arr[i]);
-    }
-    return arr;
-}
-
-// умножение булевой переменной b на массив булевых переменных А (конъюнкция)
-function multiply1Bin(a, b){
-    var c = [];
-    for (var i = 0; i < a.length; i++){
-        //c[i] = a[i] && b;
-        //c[i] = Number(c[i]);
-        if (b == 1){
-            if (a[i] == 0){
-                c[i] = 0;
-            } else {
-                c[i] = 1;
-            }
-        } else {
-            c[i] = 0;
-        }
-    }
-    return c;
-}
-
-// сдвиг элементов массива С влево с дополнением нулём в младшем разряде. по сути просто добавляет в конец элемент, равный 0
-function shiftLeft(c){
-    c.push(0);
-    return c;
-}
-
-// вычисляет сумму двух массивов булевых переменных
-function binarySum(a, b){
-    if (a.length > b.length){
-        var dif = a.length - b.length;
-        for (var i = 0; i < dif; i++){
-            b.unshift(false);
-        }
-    }
-    if (b.length > a.length){
-        var dif = b.length - a.length;
-        for (var i = 0; i < dif; i++){
-            a.unshift(false);
-        }
-    }
-
-    var c = [];
-    var d = 0;
-
-    for (var i = a.length - 1; i >= 0; i--) {
-        if (a[i] == 0 && b[i] == 0) {
-            if (d == 1){
-                c[i] = 1;
-                d = 0;
-            } else {
-                c[i] = 0;
-                d = 0;
-            }
-        } else {
-            if ((a[i] == 1 && b[i] == 0) || (a[i] == 0 && b[i] == 1)) {
-                if (d == 1) {
-                    c[i] = 0;
-                    d = 1;
-                } else {
-                    c[i] = 1;
-                    d = 0;
-                }
-            } else {
-                if (a[i] == 1 && b[i] == 1) {
-                    if (d == 1) {
-                        c[i] = 1;
-                        d = 1;
-                    } else {
-                        c[i] = 0;
-                        d = 1;
-                    }
-                }
-
-            }
-
-        }
-    }
-
-    if (d == 1){
-        c.unshift(1);
-    }
-
-    return c;
-}
-
-function resToString(c){
-    for (var i = 0; i < c.length; i++){
-        c[i] = Number(c[i]);
-        c[i] = String(c[i]);
-    }
-    c = c.join("");
-    //alert("c: "+c);
-    return c;
-}
-
-
-// собственно, сам алгоритм умножения
-function binaryMultiply(a,b){
+function binaryMultiply(a,b, rowIndex, table, time, t){
     var partSum = [];
     var res = [];
+    var cellIndex = 1;
     for (var i = 0; i < b.length; i++){
         res = shiftLeft(res);
-        //document.write("<< "+printBinary(resToString(res))+"<br>");
+        var shiftCell = table.rows[rowIndex].cells[cellIndex];
+        if (cellIndex != 1){
+            time+=t;
+            shiftCell.innerHTML = "Result: "+ printBinary(resToString(res))+"<br>"+
+            "Time: "+time;
+            cellIndex++;
+        }
         partSum = multiply1Bin(a, b[i]);
-        //document.write(printBinary(resToString(a))+" * "+Number(b[i])+"=<br>"+printBinary(resToString(partSum))+"<br>");
-        //document.write(printBinary(resToString(res))+" + "+printBinary(resToString(partSum))+"=<br>");
+        var resCopy = res;
         res = binarySum(res, partSum);
-        //document.write(printBinary(resToString(res))+"<br>");
+        time+=t;
+        var partSumCell = table.rows[rowIndex].cells[cellIndex];
+        partSumCell.innerHTML = Number(b[i]) +" * "+ printBinary(resToString(a))
+            +" = "+ printBinary(resToString(partSum))+"<br>"+
+            printBinary(resToString(resCopy)) + " + " + printBinary(resToString(partSum))+
+            " = "+printBinary(resToString(res))+"<br>"+
+            "Time: "+time;
+        cellIndex++;
+        var resultCell = table.rows[rowIndex].cells[cellIndex];
+        resultCell.innerHTML = binaryToDecimal(resToString(a))+" * "+
+                binaryToDecimal(resToString(b))+" = "+binaryToDecimal(resToString(res))+
+                "<br>"+"Elapsed time: "+time;
     }
+
     return res;
 }

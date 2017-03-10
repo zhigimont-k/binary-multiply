@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="a8920e5e-086e-49ec-a1ab-e55022baf1b4" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/function.js" afterPath="$PROJECT_DIR$/function.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lab1.html" afterPath="$PROJECT_DIR$/lab1.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/toBinary.js" afterPath="$PROJECT_DIR$/toBinary.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -21,21 +22,21 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="lab1.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="lab1.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lab1.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="546">
-              <caret line="51" column="7" lean-forward="true" selection-start-line="51" selection-start-column="7" selection-end-line="51" selection-end-column="7" />
+            <state relative-caret-position="132">
+              <caret line="28" column="16" lean-forward="false" selection-start-line="28" selection-start-column="16" selection-end-line="28" selection-end-column="16" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="toBinary.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="toBinary.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/toBinary.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="355">
-              <caret line="99" column="21" lean-forward="true" selection-start-line="99" selection-start-column="21" selection-end-line="99" selection-end-column="21" />
+            <state relative-caret-position="297">
+              <caret line="96" column="21" lean-forward="true" selection-start-line="96" selection-start-column="21" selection-end-line="96" selection-end-column="21" />
               <folding />
             </state>
           </provider>
@@ -44,8 +45,8 @@
       <file leaf-file-name="function.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/function.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="378">
-              <caret line="23" column="0" lean-forward="true" selection-start-line="23" selection-start-column="0" selection-end-line="174" selection-end-column="1" />
+            <state relative-caret-position="158">
+              <caret line="50" column="5" lean-forward="true" selection-start-line="50" selection-start-column="5" selection-end-line="50" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -207,12 +208,12 @@
       <workItem from="1488826995416" duration="6452000" />
       <workItem from="1489082856373" duration="5737000" />
       <workItem from="1489128466398" duration="2369000" />
-      <workItem from="1489168976625" duration="4323000" />
+      <workItem from="1489168976625" duration="9827000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="25328000" />
+    <option name="totallyTimeSpent" value="30832000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -382,26 +383,26 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/lab.html" />
-    <entry file="file://$PROJECT_DIR$/lab1.html">
+    <entry file="file://$PROJECT_DIR$/toBinary.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="546">
-          <caret line="51" column="7" lean-forward="true" selection-start-line="51" selection-start-column="7" selection-end-line="51" selection-end-column="7" />
+        <state relative-caret-position="297">
+          <caret line="96" column="21" lean-forward="true" selection-start-line="96" selection-start-column="21" selection-end-line="96" selection-end-column="21" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/function.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="23" column="0" lean-forward="true" selection-start-line="23" selection-start-column="0" selection-end-line="174" selection-end-column="1" />
+        <state relative-caret-position="158">
+          <caret line="50" column="5" lean-forward="true" selection-start-line="50" selection-start-column="5" selection-end-line="50" selection-end-column="5" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/toBinary.js">
+    <entry file="file://$PROJECT_DIR$/lab1.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="355">
-          <caret line="99" column="21" lean-forward="true" selection-start-line="99" selection-start-column="21" selection-end-line="99" selection-end-column="21" />
+        <state relative-caret-position="132">
+          <caret line="28" column="16" lean-forward="false" selection-start-line="28" selection-start-column="16" selection-end-line="28" selection-end-column="16" />
           <folding />
         </state>
       </provider>
