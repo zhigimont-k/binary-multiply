@@ -164,12 +164,12 @@ function binaryMultiply(a,b){
     var res = [];
     for (var i = 0; i < b.length; i++){
         res = shiftLeft(res);
-        document.write("<< "+printBinary(resToString(res))+"<br>");
+        //document.write("<< "+printBinary(resToString(res))+"<br>");
         partSum = multiply1Bin(a, b[i]);
-        document.write(printBinary(resToString(a))+" * "+Number(b[i])+"=<br>"+printBinary(resToString(partSum))+"<br>");
-        document.write(printBinary(resToString(res))+" + "+printBinary(resToString(partSum))+"=<br>");
+        //document.write(printBinary(resToString(a))+" * "+Number(b[i])+"=<br>"+printBinary(resToString(partSum))+"<br>");
+        //document.write(printBinary(resToString(res))+" + "+printBinary(resToString(partSum))+"=<br>");
         res = binarySum(res, partSum);
-        document.write(printBinary(resToString(res))+"<br>");
+        //document.write(printBinary(resToString(res))+"<br>");
     }
     return res;
 }
