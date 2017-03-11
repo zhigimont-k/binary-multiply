@@ -76,9 +76,37 @@ function handleButtonClick(){
         boolArrA[index] = getBoolArray(arrA[index]);
         boolArrB[index] = getBoolArray(arrB[index]);
     }
+    var time = 0;
     for (var index = 0; index < m; index++){
         var rowIndex = index+1;
-        arrC[index] = binaryMultiply(boolArrA[index], boolArrB[index], rowIndex, table, t);
+        //arrC[index] = binaryMultiply(boolArrA[index], boolArrB[index], rowIndex, table, t);
+        var partSum = [];
+        var res = [];
+        var cellIndex = 1;
+        for (var i = 0; i < boolArrB[index].length; i++){
+            res = shiftLeft(res);
+            var shiftCell = table.rows[rowIndex].cells[cellIndex];
+            if (cellIndex != 1){
+                time+=t;
+                shiftCell.innerHTML = "Result: "+ printBinary(resToString(res))+"<br>"+
+                    "Time: "+time;
+                cellIndex++;
+            }
+            partSum = multiply1Bin(boolArrA[index], boolArrB[index][i]);
+            var resCopy = res;
+            res = binarySum(res, partSum);
+            time+=t;
+            var partSumCell = table.rows[rowIndex].cells[cellIndex];
+            partSumCell.innerHTML = Number(boolArrB[index][i]) +" * "+ printBinary(resToString(boolArrA[index]))
+                +" = "+ printBinary(resToString(partSum))+"<br>"+
+                printBinary(resToString(resCopy)) + " + " + printBinary(resToString(partSum))+
+                " = "+printBinary(resToString(res))+"<br>"+
+                "Time: "+time;
+            cellIndex++;
+            var resultCell = table.rows[rowIndex].cells[cellIndex];
+            resultCell.innerHTML = binaryToDecimal(resToString(boolArrA[index]))+" * "+
+                binaryToDecimal(resToString(boolArrB[index]))+" = "+binaryToDecimal(resToString(res))+
+                "<br>"+"Elapsed time: "+time;
 
     }
 }
@@ -86,8 +114,8 @@ function handleButtonClick(){
 //TODO: конвейер
 //TODO: переделать создание новых строк в таблице так, чтобы это было согласовано с конвейером
 
-var time = 0;
-function binaryMultiply(a,b, rowIndex, table, t){
+//var time = 0;
+/*function binaryMultiply(a,b, rowIndex, table, t){
     var partSum = [];
     var res = [];
     var cellIndex = 1;
@@ -117,5 +145,5 @@ function binaryMultiply(a,b, rowIndex, table, t){
                 "<br>"+"Elapsed time: "+time;
     }
 
-    return res;
+    return res;*/
 }
