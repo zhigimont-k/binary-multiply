@@ -77,6 +77,7 @@ function handleButtonClick() {
         boolArrB[index] = getBoolArray(arrB[index]);
     }
 
+//TODO: конвейер
     for (var index = 0; index < m; index++) {
         var rowIndex = index + 1;
         var partSum = [];
@@ -118,39 +119,6 @@ function handleButtonClick() {
 
             }
         }
-//TODO: конвейер
 
-//var time = 0;
-        /*function binaryMultiply(a,b, rowIndex, table, t){
-         var partSum = [];
-         var res = [];
-         var cellIndex = 1;
-         for (var i = 0; i < b.length; i++){
-         res = shiftLeft(res);
-         var shiftCell = table.rows[rowIndex].cells[cellIndex];
-         if (cellIndex != 1){
-         time+=t;
-         shiftCell.innerHTML = "Result: "+ printBinary(resToString(res))+"<br>"+
-         "Time: "+time;
-         cellIndex++;
-         }
-         partSum = multiply1Bin(a, b[i]);
-         var resCopy = res;
-         res = binarySum(res, partSum);
-         time+=t;
-         var partSumCell = table.rows[rowIndex].cells[cellIndex];
-         partSumCell.innerHTML = Number(b[i]) +" * "+ printBinary(resToString(a))
-         +" = "+ printBinary(resToString(partSum))+"<br>"+
-         printBinary(resToString(resCopy)) + " + " + printBinary(resToString(partSum))+
-         " = "+printBinary(resToString(res))+"<br>"+
-         "Time: "+time;
-         cellIndex++;
-         var resultCell = table.rows[rowIndex].cells[cellIndex];
-         resultCell.innerHTML = binaryToDecimal(resToString(a))+" * "+
-         binaryToDecimal(resToString(b))+" = "+binaryToDecimal(resToString(res))+
-         "<br>"+"Elapsed time: "+time;
-         }
-
-         return res;*/
     }
 }

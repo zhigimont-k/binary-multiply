@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a8920e5e-086e-49ec-a1ab-e55022baf1b4" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/handleButtonClick.js" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/toBinary.js" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/function.js" afterPath="$PROJECT_DIR$/function.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lab1.html" afterPath="$PROJECT_DIR$/lab1.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/handleButtonClick.js" afterPath="$PROJECT_DIR$/handleButtonClick.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -34,21 +31,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="handleButtonClick.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="handleButtonClick.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/handleButtonClick.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="269">
-              <caret line="119" column="9" lean-forward="false" selection-start-line="119" selection-start-column="9" selection-end-line="119" selection-end-column="9" />
+            <state relative-caret-position="1422">
+              <caret line="79" column="16" lean-forward="false" selection-start-line="79" selection-start-column="16" selection-end-line="79" selection-end-column="16" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="function.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="function.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/function.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="172">
-              <caret line="37" column="33" lean-forward="false" selection-start-line="37" selection-start-column="33" selection-end-line="37" selection-end-column="33" />
+            <state relative-caret-position="85">
+              <caret line="140" column="23" lean-forward="true" selection-start-line="140" selection-start-column="23" selection-end-line="140" selection-end-column="23" />
               <folding />
             </state>
           </provider>
@@ -213,15 +210,15 @@
       <workItem from="1489128466398" duration="2369000" />
       <workItem from="1489168976625" duration="10467000" />
       <workItem from="1489214329303" duration="5768000" />
-      <workItem from="1489225485825" duration="9729000" />
+      <workItem from="1489225485825" duration="10022000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="46969000" />
+    <option name="totallyTimeSpent" value="47262000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24963397" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
@@ -428,18 +425,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/function.js">
+    <entry file="file://$PROJECT_DIR$/handleButtonClick.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="172">
-          <caret line="37" column="33" lean-forward="false" selection-start-line="37" selection-start-column="33" selection-end-line="37" selection-end-column="33" />
+        <state relative-caret-position="1422">
+          <caret line="79" column="16" lean-forward="false" selection-start-line="79" selection-start-column="16" selection-end-line="79" selection-end-column="16" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/handleButtonClick.js">
+    <entry file="file://$PROJECT_DIR$/function.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="269">
-          <caret line="119" column="9" lean-forward="false" selection-start-line="119" selection-start-column="9" selection-end-line="119" selection-end-column="9" />
+        <state relative-caret-position="85">
+          <caret line="140" column="23" lean-forward="true" selection-start-line="140" selection-start-column="23" selection-end-line="140" selection-end-column="23" />
           <folding />
         </state>
       </provider>

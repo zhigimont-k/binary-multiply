@@ -1,25 +1,8 @@
-/**
- * Created by Karina on 25.02.2017.
- */
+
 /**
  * Created by Karina on 11.02.2017.
  */
 
-// таймер (типа)
-function makeCounter(){
-    var currentCount = 1;
-    function counter(){
-        return currentCount++;
-    };
-    counter.set = function(value){
-        currentCount = value;
-    };
-    counter.reset = function(){
-        currentCount = 1;
-    };
-
-    return counter;
-}
 
 function binaryToDecimal(n) {
     n = parseInt(n, 2);
@@ -169,12 +152,8 @@ function binaryMultiply(a,b){
     var res = [];
     for (var i = 0; i < b.length; i++){
         res = shiftLeft(res);
-        //document.write("<< "+printBinary(resToString(res))+"<br>");
         partSum = multiply1Bin(a, b[i]);
-        //document.write(printBinary(resToString(a))+" * "+Number(b[i])+"=<br>"+printBinary(resToString(partSum))+"<br>");
-        //document.write(printBinary(resToString(res))+" + "+printBinary(resToString(partSum))+"=<br>");
         res = binarySum(res, partSum);
-        //document.write(printBinary(resToString(res))+"<br>");
     }
     return res;
 }
