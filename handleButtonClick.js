@@ -121,33 +121,89 @@ function handleButtonClick() {
             if (index == boolArrA.length - 1){
                 partSum[index] = multiply1Bin(boolArrA[index], boolArrB[index][0]);
                 res[index] = binarySum(res[index], partSum[index]);
-
-                res[index-1] = shiftLeft(res[index-1]);
+                if (boolArrA[index-1]){
+                    res[index-1] = shiftLeft(res[index-1]);
+                }
+                if (boolArrA[index-2]){
+                    partSum[index-2] = multiply1Bin(boolArrA[index-2], boolArrB[index-2][1]);
+                    res[index-2] = binarySum(res[index-2], partSum[index-2]);
+                }
+                if (boolArrA[index-3]){
+                    res[index-3] = shiftLeft(res[index-3]);}
+                if (boolArrA[index-4]){
+                    partSum[index-4] = multiply1Bin(boolArrA[index-4], boolArrB[index-4][2]);
+                    res[index-4] = binarySum(res[index-4], partSum[index-4]);}
+                if (boolArrA[index-5]){
+                    res[index-5] = shiftLeft(res[index-5]);
+                }
+                if (boolArrA[index-6]){
+                    partSum[index-6] = multiply1Bin(boolArrA[index-6], boolArrB[index-6][3]);
+                    res[index-6] = binarySum(res[index-6], partSum[index-6]);
+                }
 
                 res[index] = shiftLeft(res[index]);
-
-                partSum[index-1] = multiply1Bin(boolArrA[index-1], boolArrB[index-1][1]);
-                res[index-1] = binarySum(res[index-1], partSum[index-1]);
+                if (boolArrA[index-1]){
+                    partSum[index-1] = multiply1Bin(boolArrA[index-1], boolArrB[index-1][1]);
+                    res[index-1] = binarySum(res[index-1], partSum[index-1]);
+                }
+                if (boolArrA[index-2]){
+                    res[index-2] = shiftLeft(res[index-2]);
+                }
+                if (boolArrA[index-3]){
+                    partSum[index-3] = multiply1Bin(boolArrA[index-3], boolArrB[index-3][2]);
+                    res[index-3] = binarySum(res[index-3], partSum[index-3]);
+                }
+                if (boolArrA[index-4]){
+                    res[index-4] = shiftLeft(res[index-4]);
+                }
+                if (boolArrA[index-5]){
+                    partSum[index-5] = multiply1Bin(boolArrA[index-5], boolArrB[index-5][3]);
+                    res[index-5] = binarySum(res[index-5], partSum[index-5]);
+                }
 
                 partSum[index] = multiply1Bin(boolArrA[index], boolArrB[index][1]);
                 res[index] = binarySum(res[index], partSum[index]);
-
-                res[index-1] = shiftLeft(res[index-1]);
+                if (boolArrA[index-1]){
+                    res[index-1] = shiftLeft(res[index-1]);
+                }
+                if (boolArrA[index-2]){
+                    partSum[index-2] = multiply1Bin(boolArrA[index-2], boolArrB[index-2][2]);
+                    res[index-2] = binarySum(res[index-2], partSum[index-2]);
+                }
+                if (boolArrA[index-3]){
+                    res[index-3] = shiftLeft(res[index-3]);
+                }
+                if (boolArrA[index-4]){
+                    partSum[index-4] = multiply1Bin(boolArrA[index-4], boolArrB[index-4][3]);
+                    res[index-4] = binarySum(res[index-4], partSum[index-4]);}
 
                 res[index] = shiftLeft(res[index]);
-
-                partSum[index-1] = multiply1Bin(boolArrA[index-1], boolArrB[index-1][2]);
-                res[index-1] = binarySum(res[index-1], partSum[index-1]);
+                if (boolArrA[index-1]){
+                    partSum[index-1] = multiply1Bin(boolArrA[index-1], boolArrB[index-1][2]);
+                    res[index-1] = binarySum(res[index-1], partSum[index-1]);
+                }
+                if (boolArrA[index-2]){
+                    res[index-2] = shiftLeft(res[index-2]);
+                }
+                if (boolArrA[index-3]){
+                    partSum[index-3] = multiply1Bin(boolArrA[index-3], boolArrB[index-3][3]);
+                    res[index-3] = binarySum(res[index-3], partSum[index-3]);
+                }
 
                 partSum[index] = multiply1Bin(boolArrA[index], boolArrB[index][2]);
                 res[index] = binarySum(res[index], partSum[index]);
-
-                res[index-1] = shiftLeft(res[index-1]);
+                if (boolArrA[index-1]){
+                    res[index-1] = shiftLeft(res[index-1]);
+                }
+                if (boolArrA[index-2]){
+                    partSum[index-2] = multiply1Bin(boolArrA[index-2], boolArrB[index-2][3]);
+                    res[index-2] = binarySum(res[index-2], partSum[index-2]);}
 
                 res[index] = shiftLeft(res[index]);
-
-                partSum[index-1] = multiply1Bin(boolArrA[index-1], boolArrB[index-1][3]);
-                res[index-1] = binarySum(res[index-1], partSum[index-1]);
+                if (boolArrA[index-1]){
+                    partSum[index-1] = multiply1Bin(boolArrA[index-1], boolArrB[index-1][3]);
+                    res[index-1] = binarySum(res[index-1], partSum[index-1]);
+                }
 
                 partSum[index] = multiply1Bin(boolArrA[index], boolArrB[index][3]);
                 res[index] = binarySum(res[index], partSum[index]);
