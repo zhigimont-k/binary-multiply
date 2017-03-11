@@ -50,6 +50,7 @@ function printBinary(n) {
 
     }
     str = str.replace(/(\d)(?=(\d\d\d\d)+([^\d]|$))/g, '$1 ');
+
     return(str);
 }
 

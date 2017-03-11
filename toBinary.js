@@ -14,7 +14,7 @@ function handleButtonClick(){
     }
 	var arrA = document.getElementById("inputA").value;
 	var arrB = document.getElementById("inputB").value;
-	var m = document.getElementById("inputM").value;
+	var m = Number(document.getElementById("inputM").value);
 	var t = Number(document.getElementById("inputT").value);
 
 	arrA = arrA.split(" ");
@@ -39,7 +39,7 @@ function handleButtonClick(){
 		if (arrA[i] > 15 || arrA[i] < 0){
 			alert("Please input number in the [0; 15] interval!");
 		}
-		arrA[i] = decimalToBinary(arrA[i]);
+		arrA[i] = printBinary(decimalToBinary(arrA[i]));
 	}
 	for (var i = 0; i < arrB.length; i++){
 		arrB[i] = Number(arrB[i]);
@@ -53,7 +53,7 @@ function handleButtonClick(){
 	var table = document.getElementById("table");
     //var rowIndex = 1;
     //var cellIndex = 0;
-    var time = 0;
+    //var time = 0;
     for (var rowIndex = 1; rowIndex <= 8*m+1; rowIndex++){
         i = rowIndex - 1;
         var row = table.insertRow();
@@ -78,22 +78,16 @@ function handleButtonClick(){
     }
     for (var index = 0; index < m; index++){
         var rowIndex = index+1;
-        arrC[index] = binaryMultiply(boolArrA[index], boolArrB[index], rowIndex, table, time, t);
+        arrC[index] = binaryMultiply(boolArrA[index], boolArrB[index], rowIndex, table, t);
 
     }
-	/*for (var i = 0; i < m; i++){
-        //alert(binaryToDecimal(resToString(arrC[i])));
-        var resultCell = table.rows[i+1].cells[8];
-        resultCell.innerHTML = binaryToDecimal(arrA[i])+" * "+binaryToDecimal(arrB[i])+
-            " = "+ binaryToDecimal(resToString(arrC[i]))+"<br>"+
-        "Elapsed time: "+time;
-    }*/
 }
 //TODO: см. printBinary в functions.js
 //TODO: конвейер
-//TODO: таймер
+//TODO: переделать создание новых строк в таблице так, чтобы это было согласовано с конвейером
 
-function binaryMultiply(a,b, rowIndex, table, time, t){
+var time = 0;
+function binaryMultiply(a,b, rowIndex, table, t){
     var partSum = [];
     var res = [];
     var cellIndex = 1;
