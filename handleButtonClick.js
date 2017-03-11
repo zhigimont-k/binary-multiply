@@ -78,19 +78,89 @@ function handleButtonClick() {
     }
 
 //TODO: конвейер
-    for (var index = 0; index < m; index++) {
-        var rowIndex = index + 1;
-        var partSum = [];
-        var res = [];
-        var cellIndex = 1;
-
+    var partSum = [];
+    var res = [];
         for (var index = 0; index < m; index++) {
-            var rowIndex = index + 1;
+            //var rowIndex = index + 1;
             //arrC[index] = binaryMultiply(boolArrA[index], boolArrB[index], rowIndex, table, t);
-            var partSum = [];
-            var res = [];
+
+            res[index] = [];
+            partSum[index] = [];
             var cellIndex = 1;
-            for (var i = 0; i < boolArrB[index].length; i++) {
+
+            res[index] = shiftLeft(res[index]);
+            //partSum[index] = multiply1Bin(boolArrA[index], boolArrB[index][0]);
+            //res[index] = binarySum(res[index], partSum[index]);
+            //res[index] = shiftLeft(res[index]);
+            if (boolArrA[index-1]){
+                partSum[index-1] = multiply1Bin(boolArrA[index-1], boolArrB[index-1][0]);
+                res[index-1] = binarySum(res[index-1], partSum[index-1]);
+            }
+            if (boolArrA[index-2]){
+                res[index-2] = shiftLeft(res[index-2]);
+            }
+            if (boolArrA[index-3]){
+                partSum[index-3] = multiply1Bin(boolArrA[index-3], boolArrB[index-3][1]);
+                res[index-3] = binarySum(res[index-3], partSum[index-3]);
+            }
+            if (boolArrA[index-4]){
+                res[index-4] = shiftLeft(res[index-4]);
+            }
+            if (boolArrA[index-5]){
+                partSum[index-5] = multiply1Bin(boolArrA[index-5], boolArrB[index-5][2]);
+                res[index-5] = binarySum(res[index-5], partSum[index-5]);
+            }
+            if (boolArrA[index-6]){
+                res[index-6] = shiftLeft(res[index-6]);
+            }
+            if (boolArrA[index-7]){
+                partSum[index-7] = multiply1Bin(boolArrA[index-7], boolArrB[index-7][3]);
+                res[index-7] = binarySum(res[index-7], partSum[index-7]);
+            }
+
+            if (index == boolArrA.length - 1){
+                partSum[index] = multiply1Bin(boolArrA[index], boolArrB[index][0]);
+                res[index] = binarySum(res[index], partSum[index]);
+
+                res[index-1] = shiftLeft(res[index-1]);
+
+                res[index] = shiftLeft(res[index]);
+
+                partSum[index-1] = multiply1Bin(boolArrA[index-1], boolArrB[index-1][1]);
+                res[index-1] = binarySum(res[index-1], partSum[index-1]);
+
+                partSum[index] = multiply1Bin(boolArrA[index], boolArrB[index][1]);
+                res[index] = binarySum(res[index], partSum[index]);
+
+                res[index-1] = shiftLeft(res[index-1]);
+
+                res[index] = shiftLeft(res[index]);
+
+                partSum[index-1] = multiply1Bin(boolArrA[index-1], boolArrB[index-1][2]);
+                res[index-1] = binarySum(res[index-1], partSum[index-1]);
+
+                partSum[index] = multiply1Bin(boolArrA[index], boolArrB[index][2]);
+                res[index] = binarySum(res[index], partSum[index]);
+
+                res[index-1] = shiftLeft(res[index-1]);
+
+                res[index] = shiftLeft(res[index]);
+
+                partSum[index-1] = multiply1Bin(boolArrA[index-1], boolArrB[index-1][3]);
+                res[index-1] = binarySum(res[index-1], partSum[index-1]);
+
+                partSum[index] = multiply1Bin(boolArrA[index], boolArrB[index][3]);
+                res[index] = binarySum(res[index], partSum[index]);
+            }
+
+            //alert("index: "+index);
+            //alert(res);
+
+
+
+
+
+            /*for (var i = 0; i < boolArrB[index].length; i++) {
                 res = shiftLeft(res);
                 var shiftCell = table.rows[rowIndex].cells[cellIndex];
                 if (cellIndex != 1) {
@@ -117,8 +187,11 @@ function handleButtonClick() {
                     binaryToDecimal(resToString(boolArrB[index])) + " = " + binaryToDecimal(resToString(res)) +
                     "<br>" + "Elapsed time: " + time;
 
-            }
+            }*/
         }
 
-    }
+        for (var i = 0; i < m; i++){
+            arrC[i] = binaryToDecimal(resToString(res[i]));
+        }
+        alert(arrC);
 }
