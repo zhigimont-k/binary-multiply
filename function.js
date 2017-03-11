@@ -31,27 +31,30 @@ function decimalToBinary(n) {
     n = (n >>> 0).toString(2);
     return n;
 }
-//TODO: убрать лишние нули в начале (типа 0000 0010 -> 0010)
+
 function printBinary(n) {
     var str = String(n);
     if (str.length % 4) {
         if (str.length % 4 === 1) {
             str = str.replace(/(\d)(?=(\d\d\d\d)+([^\d]|$))/g, '$1 ');
-            return("000" + str);
+            str = "000" + str;
         }
         if (str.length % 4 === 2) {
             str = str.replace(/(\d)(?=(\d\d\d\d)+([^\d]|$))/g, '$1 ');
-            return("00" + str);
+            str = "00" + str;
         }
         if (str.length % 4 === 3) {
             str = str.replace(/(\d)(?=(\d\d\d\d)+([^\d]|$))/g, '$1 ');
-            return("0" + str);
+            str = "0" + str;
         }
 
     }
     str = str.replace(/(\d)(?=(\d\d\d\d)+([^\d]|$))/g, '$1 ');
 
-    return(str);
+    if (( /(?=(0000\s)+([\d]|$))/).test(str)){
+        str = str.substring(5);
+    }
+    return str;
 }
 
 function getBoolArray(str){
