@@ -92,153 +92,24 @@ function handleButtonClick() {
         res[i] = [];
         partSum = [];
     }
-    while (step[m-1] < 9){
+    while (step[m-1] < 7){
         //res[index] = [];
         cellIndex++;
         for (var elemIndex = 0; elemIndex < m; elemIndex++){
-            if (boolArrA[elemIndex-1] && (step[elemIndex-1] <= step[elemIndex])){
-                elemIndex--;
-                //alert("test");
-            }
-            if (step[elemIndex] == 0){
-                step[elemIndex]++;
-                rowIndex = elemIndex+step[elemIndex];
-                //time+=t;
-
-            }
             time+=t;
-            if (step[elemIndex] == 1){
-                partSum[elemIndex] = multiply1Bin(boolArrA[elemIndex], boolArrB[elemIndex][0]);
-                res[elemIndex] = binarySum(partSum[elemIndex], res[elemIndex]);
-                rowIndex = elemIndex+step[elemIndex];
-                var resCell = table.rows[rowIndex].cells[cellIndex];
-                //time+=t;
-                resCell.innerHTML = printBinary(resToString(res[elemIndex]))+"<br>"+
-                "Time: "+time;
-                step[elemIndex]++;
-                continue;
-            }
-            if (step[elemIndex] == 2){
-                res[elemIndex] = shiftLeft(res[elemIndex]);
-                rowIndex = elemIndex+step[elemIndex];
-                var resCell = table.rows[rowIndex].cells[cellIndex];
-                //time+=t;
-                resCell.innerHTML = printBinary(resToString(res[elemIndex]))+"<br>"+
-                    "Time: "+time;
-                step[elemIndex]++;
 
-                continue;
-            }
-            if (step[elemIndex] == 3){
-                partSum[elemIndex] = multiply1Bin(boolArrA[elemIndex], boolArrB[elemIndex][1]);
-                res[elemIndex] = binarySum(partSum[elemIndex], res[elemIndex]);
-                rowIndex = elemIndex+step[elemIndex];
-                var resCell = table.rows[rowIndex].cells[cellIndex];
-                //time+=t;
-                resCell.innerHTML = printBinary(resToString(res[elemIndex]))+"<br>"+
-                    "Time: "+time;
-                step[elemIndex]++;
-                continue;
-            }
-            if (step[elemIndex] == 4){
-                res[elemIndex] = shiftLeft(res[elemIndex]);
-                rowIndex = elemIndex+step[elemIndex];
-                var resCell = table.rows[rowIndex].cells[cellIndex];
-                //time+=t;
-                resCell.innerHTML = printBinary(resToString(res[elemIndex]))+"<br>"+
-                    "Time: "+time;
-                step[elemIndex]++;
-                continue;
-            }
-            if (step[elemIndex] == 5){
-                partSum[elemIndex] = multiply1Bin(boolArrA[elemIndex], boolArrB[elemIndex][2]);
-                res[elemIndex] = binarySum(partSum[elemIndex], res[elemIndex]);
-                rowIndex = elemIndex+step[elemIndex];
-                var resCell = table.rows[rowIndex].cells[cellIndex];
-                //time+=t;
-                resCell.innerHTML = printBinary(resToString(res[elemIndex]))+"<br>"+
-                    "Time: "+time;
-                step[elemIndex]++;
-                continue;
-            }
-            if (step[elemIndex] == 6){
-                res[elemIndex] = shiftLeft(res[elemIndex]);
-                rowIndex = elemIndex+step[elemIndex];
-                var resCell = table.rows[rowIndex].cells[cellIndex];
-                //time+=t;
-                resCell.innerHTML = printBinary(resToString(res[elemIndex]))+"<br>"+
-                    "Time: "+time;
-                step[elemIndex]++;
-                continue;
-            }
-            if (step[elemIndex] == 7){
-                partSum[elemIndex] = multiply1Bin(boolArrA[elemIndex], boolArrB[elemIndex][3]);
-                res[elemIndex] = binarySum(partSum[elemIndex], res[elemIndex]);
-                rowIndex = elemIndex+step[elemIndex];
-                var resCell = table.rows[rowIndex].cells[cellIndex];
-                //time+=t;
-                resCell.innerHTML = printBinary(resToString(res[elemIndex]))+"<br>"+
-                    "Time: "+time;
-                step[elemIndex]++;
-                continue;
-            }
-            if (step[elemIndex] == 8){
-                //res[elemIndex] = shiftLeft(res[elemIndex]);
-                rowIndex = elemIndex+step[elemIndex];
-                var resCell = table.rows[rowIndex].cells[cellIndex];
-                //time+=t;
-                resCell.innerHTML = binaryToDecimal(resToString(res[elemIndex]))+"<br>"+
-                    "Time: "+time;
-                step[elemIndex]++;
-            }
+            res[elemIndex] = pipeline(res[elemIndex], boolArrA[elemIndex], boolArrB[elemIndex], step[elemIndex]);
+            //alert(res[elemIndex]);
+
+            step[elemIndex]++;
+
+
         }
     }
-    //var row = 1;
-        /*for (var step = 0; step < 8; step++) {
-            res[index] = [];
-            for (var elemIndex = 0; elemIndex < m; elemIndex++){
-                if (step == 0){
-                    step++;
-                }
-                if (step == 1){
-                    res[elemIndex] = multiply1Bin(boolArrA[elemIndex], boolArrB[elemIndex][0]);
-                    var resCell = table.rows[rowIndex+elemIndex].cells[cellIndex];
-                    resCell.innerHTML = "test";
-                    rowIndex++;
-                }
-                if (step == 2){
-                    res[elemIndex] = shiftLeft(res[elemIndex]);
-                    var resCell = table.rows[rowIndex+elemIndex].cells[cellIndex];
-                    resCell.innerHTML = "test 2";
-                    rowIndex++;
-                }
-                if (step == 3){
-                    res[elemIndex] = multiply1Bin(boolArrA[elemIndex], boolArrB[elemIndex][1]);
-                    var resCell = table.rows[rowIndex+elemIndex].cells[cellIndex];
-                    resCell.innerHTML = "test 3";
-                    rowIndex++;
-                }
-                if (step == 4){
-                    res[elemIndex] = shiftLeft(res[elemIndex]);
-                    step++;
-                }
-                if (step == 5){
-                    res[elemIndex] = multiply1Bin(boolArrA[elemIndex], boolArrB[elemIndex][2]);
-                    step++;
-                }
-                if (step == 6){
-                    res[elemIndex] = shiftLeft(res[elemIndex]);
-                    step++;
-                }
-                if (step == 7){
-                    res[elemIndex] = multiply1Bin(boolArrA[elemIndex], boolArrB[elemIndex][3]);
-                    step++;
-                }
-                if (step == 8){
-                    res[elemIndex] = shiftLeft(res[elemIndex]);
-                    step++;
-                }
-            }
-            cellIndex++;
-        }*/
+    //alert(res);
+    for (var i = 0; i < res.length; i++){
+        res[i] = binaryToDecimal(resToString(res[i]));
+    }
+    alert(res);
 }
+
