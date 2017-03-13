@@ -19,15 +19,15 @@ function printBinary(n) {
     var str = String(n);
     if (str.length % 4) {
         if (str.length % 4 === 1) {
-            str = str.replace(/(\d)(?=(\d\d\d\d)+([^\d]|$))/g, '$1 ');
+            //str = str.replace(/(\d)(?=(\d\d\d\d)+([^\d]|$))/g, '$1 ');
             str = "000" + str;
         }
         if (str.length % 4 === 2) {
-            str = str.replace(/(\d)(?=(\d\d\d\d)+([^\d]|$))/g, '$1 ');
+            //str = str.replace(/(\d)(?=(\d\d\d\d)+([^\d]|$))/g, '$1 ');
             str = "00" + str;
         }
         if (str.length % 4 === 3) {
-            str = str.replace(/(\d)(?=(\d\d\d\d)+([^\d]|$))/g, '$1 ');
+            //str = str.replace(/(\d)(?=(\d\d\d\d)+([^\d]|$))/g, '$1 ');
             str = "0" + str;
         }
 
@@ -35,7 +35,7 @@ function printBinary(n) {
     str = str.replace(/(\d)(?=(\d\d\d\d)+([^\d]|$))/g, '$1 ');
 
     if (( /(?=(0000\s)+([\d]|$))/).test(str)){
-        str = str.substring(5);
+        //str = str.substring(5);
     }
     return str;
 }

@@ -50,10 +50,6 @@ function handleButtonClick() {
     }
 
 
-    var table = document.getElementById("table");
-    //var rowIndex = 1;
-    //var cellIndex = 0;
-    //var time = 0;
     for (var rowIndex = 1; rowIndex <= 8+(m-1); rowIndex++) {
         i = rowIndex - 1;
         var row = table.insertRow();
@@ -73,22 +69,17 @@ function handleButtonClick() {
     var boolArrB = [];
     var arrC = [];
 
-    //var time = 0;
-
     for (var index = 0; index < m; index++) {
         boolArrA[index] = getBoolArray(arrA[index]);
         boolArrB[index] = getBoolArray(arrB[index]);
     }
 
-//TODO: вывод данных в таблице
     var partSum = [];
     var res = [];
     var cellIndex = 0;
     var rowIndex = 0;
     var step = [];
     var time = 0;
-    var stop = 0;
-    var border = 0;
     for (var i = 0; i < m; i++){
         step[i] = 0;
         res[i] = [];
@@ -98,66 +89,57 @@ function handleButtonClick() {
 
         time+=t;
 
-        //res[elemIndex] = pipeline(res[elemIndex], boolArrA[elemIndex], boolArrB[elemIndex], step[elemIndex]);
-        //alert(res[elemIndex]);
-
-        //step[elemIndex]++;
-
-        for (var k = 0; k < elemIndex; k++){
-            if (step[k-1] >= step[k]){
-                stop = k-1;
-            }
-        }
         for (var j = elemIndex; j >= 0; j--){
-            //cellIndex++;
             cellIndex = step[j]+1;
             res[j] = pipeline(res[j], boolArrA[j], boolArrB[j], step[j]);
             if (step[j] < 8){
                 rowIndex = j + step[j] + 1;
-                //if (cellIndex){
                 var resCell = table.rows[rowIndex].cells[cellIndex];
-                //time+=t;
-                resCell.innerHTML = "A: "+boolArrA[j]+"<br>"+printBinary(resToString(res[j]))+"<br>"+
-                    "Time: "+time;
+
+                if (step[j] == 7){
+                    resCell.innerHTML = binaryToDecimal(arrA[j])+" * "+
+                        binaryToDecimal(arrB[j])+" = "+binaryToDecimal(resToString(res[j]))+"<br>"+
+                        "Elapsed time: "+time;
+                } else {
+                    resCell.innerHTML = "A: "+printBinary(resToString(boolArrA[j]))+
+                        "<br>"+"B: "+printBinary(resToString(boolArrB[j]))+
+                        "<br>"+"Result: "+printBinary(resToString(res[j]))+"<br>"+
+                        "Time: "+time;
+                }
                 step[j]++;
             }
-            //}
         }
     }
+
     while (step[m-1] < 8){
-        //res[index] = [];
         time+=t;
 
-        //res[elemIndex] = pipeline(res[elemIndex], boolArrA[elemIndex], boolArrB[elemIndex], step[elemIndex]);
-        //alert(res[elemIndex]);
-
-        //step[elemIndex]++;
-
-        for (var k = 0; k < m; k++){
-            if (step[k-1] >= step[k]){
-                stop = k-1;
-            }
-        }
-        for (var j = m; j >= 0; j--){
-            //cellIndex++;
+        for (var j = m-1; j >= 0; j--){
             cellIndex = step[j]+1;
             res[j] = pipeline(res[j], boolArrA[j], boolArrB[j], step[j]);
             if (step[j] < 8){
                 rowIndex = j + step[j] + 1;
-                //if (cellIndex){
                 var resCell = table.rows[rowIndex].cells[cellIndex];
-                //time+=t;
-                resCell.innerHTML = "A: "+boolArrA[j]+"<br>"+printBinary(resToString(res[j]))+"<br>"+
-                    "Time: "+time;
+
+                if (step[j] == 7){
+                    resCell.innerHTML = binaryToDecimal(arrA[j])+" * "+
+                        binaryToDecimal(arrB[j])+" = "+binaryToDecimal(resToString(res[j]))+"<br>"+
+                        "Elapsed time: "+time;
+                } else {
+                        resCell.innerHTML = "A: "+printBinary(resToString(boolArrA[j]))+
+                            "<br>"+"B: "+printBinary(resToString(boolArrB[j]))+
+                            "<br>"+"Result: "+printBinary(resToString(res[j]))+"<br>"+
+                            "Time: "+time;
+                }
                 step[j]++;
             }
-            //}
         }
     }
-    //alert(res);
+
     for (var i = 0; i < res.length; i++){
-        //res[i] = binaryToDecimal(resToString(res[i]));
-        alert(res[i]);
+        arrC[i] = binaryToDecimal(resToString(res[i]));
     }
+
+    document.getElementById("result").value = arrC;
 }
 
