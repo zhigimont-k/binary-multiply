@@ -88,48 +88,76 @@ function handleButtonClick() {
     var step = [];
     var time = 0;
     var stop = 0;
+    var border = 0;
     for (var i = 0; i < m; i++){
         step[i] = 0;
         res[i] = [];
         partSum = [];
     }
+    for (var elemIndex = 0; elemIndex < m; elemIndex++){
+
+        time+=t;
+
+        //res[elemIndex] = pipeline(res[elemIndex], boolArrA[elemIndex], boolArrB[elemIndex], step[elemIndex]);
+        //alert(res[elemIndex]);
+
+        //step[elemIndex]++;
+
+        for (var k = 0; k < elemIndex; k++){
+            if (step[k-1] >= step[k]){
+                stop = k-1;
+            }
+        }
+        for (var j = elemIndex; j >= 0; j--){
+            //cellIndex++;
+            cellIndex = step[j]+1;
+            res[j] = pipeline(res[j], boolArrA[j], boolArrB[j], step[j]);
+            if (step[j] < 8){
+                rowIndex = j + step[j] + 1;
+                //if (cellIndex){
+                var resCell = table.rows[rowIndex].cells[cellIndex];
+                //time+=t;
+                resCell.innerHTML = "A: "+boolArrA[j]+"<br>"+printBinary(resToString(res[j]))+"<br>"+
+                    "Time: "+time;
+                step[j]++;
+            }
+            //}
+        }
+    }
     while (step[m-1] < 8){
         //res[index] = [];
-        for (var elemIndex = 0; elemIndex < m; elemIndex++){
-            time+=t;
+        time+=t;
 
-            //res[elemIndex] = pipeline(res[elemIndex], boolArrA[elemIndex], boolArrB[elemIndex], step[elemIndex]);
-            //alert(res[elemIndex]);
+        //res[elemIndex] = pipeline(res[elemIndex], boolArrA[elemIndex], boolArrB[elemIndex], step[elemIndex]);
+        //alert(res[elemIndex]);
 
-            //step[elemIndex]++;
+        //step[elemIndex]++;
 
-            /*for (var k = 0; k < elemIndex; k++){
-                if (step[k-1] > step[k]){
-                    stop = k-1;
-                }
-            }*/
-            for (var j = elemIndex; j >= stop; j--){
-                //cellIndex++;
-                cellIndex = step[j]+1;
-                res[j] = pipeline(res[j], boolArrA[j], boolArrB[j], step[j]);
-                if (step[j] < 8){
-                    rowIndex = j + step[j] + 1;
-                    //if (cellIndex){
-                    var resCell = table.rows[rowIndex].cells[cellIndex];
-                    //time+=t;
-                    resCell.innerHTML = "A: "+boolArrA[j]+"<br>"+printBinary(resToString(res[j]))+"<br>"+
-                        "Time: "+time;
-                    step[j]++;
-                }
-                //}
+        for (var k = 0; k < m; k++){
+            if (step[k-1] >= step[k]){
+                stop = k-1;
             }
-
+        }
+        for (var j = m; j >= 0; j--){
+            //cellIndex++;
+            cellIndex = step[j]+1;
+            res[j] = pipeline(res[j], boolArrA[j], boolArrB[j], step[j]);
+            if (step[j] < 8){
+                rowIndex = j + step[j] + 1;
+                //if (cellIndex){
+                var resCell = table.rows[rowIndex].cells[cellIndex];
+                //time+=t;
+                resCell.innerHTML = "A: "+boolArrA[j]+"<br>"+printBinary(resToString(res[j]))+"<br>"+
+                    "Time: "+time;
+                step[j]++;
+            }
+            //}
         }
     }
     //alert(res);
     for (var i = 0; i < res.length; i++){
-        res[i] = binaryToDecimal(resToString(res[i]));
+        //res[i] = binaryToDecimal(resToString(res[i]));
+        alert(res[i]);
     }
-    alert(res);
 }
 
