@@ -8,27 +8,39 @@
     </script>
     <script src="pipeline.js">
     </script>
+    <script src="getText.js">
+    </script>
     <style type="text/css">
-    TABLE {
-        background: #8fb6aa; /* Цвет фона таблицы */
-        color: white; /* Цвет текста */
-        border: 1px solid black;
+
+    table {
+       border-collapse:
+        collapse;
+        width: 100%;
+        font-family:"Arial", Arial, sans-serif;
     }
-    TD {
-        background: #2e585e; /* Цвет фона ячеек */
-        border: 1px solid black;
-        padding: 15px;
+    table, th, td {
+        border: 2px solid #114b2e;
     }
-    TH {
-        border: 1px solid black;
-        padding: 15px;
-    }
+        th {
+            height: 50px;
+            background-color: #4CAF50;
+            color: white;
+            width: 10%;
+        }
+        tr:nth-child(even){
+            background-color: #bde6b6
+        }
+        tr {
+            color: #2e5c2f;
+            width: 10%;
+        }
 </style>
 </head>
 <body>
+<font face="Arial">
 <h1>Binary multiply</h1>
 
-Array A: <input type="text" id="inputA"> M: <input type="text" id="inputM">
+Array A: <input type="tex" id="inputA"> M: <input type="text" id="inputM">
 <br>
 <br>
 Array B: <input type="text" id="inputB"> T: <input type="text" id="inputT">
@@ -38,6 +50,7 @@ Array B: <input type="text" id="inputB"> T: <input type="text" id="inputT">
 Array C: <form> <output id="result"> </output></p></form>
 
 <input type="button" value="Multiply" onclick="handleButtonClick()">
+</font>
 <br><br>
     <table id="table">
     <tr>

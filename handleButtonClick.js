@@ -38,6 +38,7 @@ function handleButtonClick() {
         arrA[i] = Number(arrA[i]);
         if (arrA[i] > 15 || arrA[i] < 0) {
             alert("Please input number in the [0; 15] interval!");
+            return 0;
         }
         arrA[i] = printBinary(decimalToBinary(arrA[i]));
     }
@@ -45,6 +46,7 @@ function handleButtonClick() {
         arrB[i] = Number(arrB[i]);
         if (arrB[i] > 15 || arrB[i] < 0) {
             alert("Please input number in the [0; 15] interval!");
+            return 0;
         }
         arrB[i] = printBinary(decimalToBinary(arrB[i]));
     }
@@ -55,9 +57,9 @@ function handleButtonClick() {
         var row = table.insertRow();
         var cell = row.insertCell(0);
         if (rowIndex <= m) {
-            cell.innerHTML = "A" + "<sub>" + i + "</sub>" + " = " + printBinary(arrA[i]) + "<br>" + "B" +
-                "<sub>" + i + "</sub>" + " = " + printBinary(arrB[i]) + "<br>" +
-                "Time: " + time;
+            cell.innerHTML = "<b>A</b> = " + printBinary(arrA[i]) + "<br>" +
+                "<b>B</b> = " + printBinary(arrB[i]) + "<br>" +
+                "<b>Time:</b> " + time;
         }
 
         for (var cellIndex = 1; cellIndex < 9; cellIndex++) {
@@ -96,15 +98,18 @@ function handleButtonClick() {
                 rowIndex = j + step[j] + 1;
                 var resCell = table.rows[rowIndex].cells[cellIndex];
 
+
+
                 if (step[j] == 7){
-                    resCell.innerHTML = binaryToDecimal(arrA[j])+" * "+
-                        binaryToDecimal(arrB[j])+" = "+binaryToDecimal(resToString(res[j]))+"<br>"+
-                        "Elapsed time: "+time;
+                    resCell.innerHTML = "<b>A:</b> "+binaryToDecimal(resToString(boolArrA[j]))+
+                        "<br>"+"<b>B:</b> "+binaryToDecimal(resToString(boolArrB[j]))+
+                        "<br>"+"<b>Result: </b>"+binaryToDecimal(resToString(res[j]))+"<br>"+
+                        "<b>Elapsed time:</b> "+time;
                 } else {
-                    resCell.innerHTML = "A: "+printBinary(resToString(boolArrA[j]))+
-                        "<br>"+"B: "+printBinary(resToString(boolArrB[j]))+
-                        "<br>"+"Result: "+printBinary(resToString(res[j]))+"<br>"+
-                        "Time: "+time;
+                    resCell.innerHTML = "<b>A:</b> "+printBinary(resToString(boolArrA[j]))+
+                        "<br>"+"<b>B:</b> "+printBinary(resToString(boolArrB[j]))+
+                        "<br>"+"<b>Result: </b>"+printBinary(resToString(res[j]))+"<br>"+
+                        "<b>Time:</b> "+time;
                 }
                 step[j]++;
             }
@@ -122,14 +127,15 @@ function handleButtonClick() {
                 var resCell = table.rows[rowIndex].cells[cellIndex];
 
                 if (step[j] == 7){
-                    resCell.innerHTML = binaryToDecimal(arrA[j])+" * "+
-                        binaryToDecimal(arrB[j])+" = "+binaryToDecimal(resToString(res[j]))+"<br>"+
-                        "Elapsed time: "+time;
+                    resCell.innerHTML = "<b>A:</b> "+binaryToDecimal(resToString(boolArrA[j]))+
+                        "<br>"+"<b>B:</b> "+binaryToDecimal(resToString(boolArrB[j]))+
+                        "<br>"+"<b>Result: </b>"+binaryToDecimal(resToString(res[j]))+"<br>"+
+                        "<b>Elapsed time:</b> "+time;
                 } else {
-                        resCell.innerHTML = "A: "+printBinary(resToString(boolArrA[j]))+
-                            "<br>"+"B: "+printBinary(resToString(boolArrB[j]))+
-                            "<br>"+"Result: "+printBinary(resToString(res[j]))+"<br>"+
-                            "Time: "+time;
+                        resCell.innerHTML = "<b>A:</b> "+printBinary(resToString(boolArrA[j]))+
+                            "<br>"+"<b>B:</b> "+printBinary(resToString(boolArrB[j]))+
+                            "<br>"+"<b>Result: </b>"+printBinary(resToString(res[j]))+"<br>"+
+                            "<b>Time:</b> "+time;
                 }
                 step[j]++;
             }

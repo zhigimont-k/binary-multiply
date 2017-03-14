@@ -35,7 +35,7 @@ function printBinary(n) {
     str = str.replace(/(\d)(?=(\d\d\d\d)+([^\d]|$))/g, '$1 ');
 
     if (( /(?=(0000\s)+([\d]|$))/).test(str)){
-        //str = str.substring(5);
+        str = str.substring(5);
     }
     return str;
 }
