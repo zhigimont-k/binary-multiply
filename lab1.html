@@ -34,27 +34,35 @@
             color: #2e5c2f;
             width: 10%;
         }
+    h1 {
+        color: #2e5c2f;
+    }
+        p {
+            color: #2e5c2f;
+        }
 </style>
 </head>
 <body>
 <font face="Arial">
 <h1>Binary multiply</h1>
+<p>
+    Array A: <input type="text" style="color: #7aa438;" id="inputA"> M: <input type="text" style="color: #7aa438;"
+                                                                               id="inputM">
+    <br>
+    <br>
+    Array B: <input type="text" style="color: #7aa438;" id="inputB"> T: <input type="text" style="color: #7aa438;"
+                                                                               id="inputT">
 
-Array A: <input type="tex" id="inputA"> M: <input type="text" id="inputM">
-<br>
-<br>
-Array B: <input type="text" id="inputB"> T: <input type="text" id="inputT">
+    <br>
+    <br>
+    Array C: <form> <output id="result" style="color: #2e5c2f;"> </output></form></p>
 
-<br>
-<br>
-Array C: <form> <output id="result"> </output></p></form>
+    <input type="button" value="Multiply" onclick="handleButtonClick()">
+</font></p>
 
-<input type="button" value="Multiply" onclick="handleButtonClick()">
-</font>
-<br><br>
     <table id="table">
     <tr>
-    <th width="10%">Pair</th>
+    <th>Pair</th>
     <th >Multiplication b[0]*A and addition</th>
     <th>Shift left</th>
     <th>Multiplication b[1]*A and addition</th>
