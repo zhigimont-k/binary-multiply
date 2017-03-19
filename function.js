@@ -40,6 +40,10 @@ function printBinary(n) {
     return str;
 }
 
+function inputIsNumeric(str){
+    return (( /(^[\d\s]+$)/.test(str)));
+}
+
 function getBoolArray(str){
     var arr = String(str);
     arr = str.split("");

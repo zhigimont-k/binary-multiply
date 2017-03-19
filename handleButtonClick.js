@@ -14,8 +14,23 @@ function handleButtonClick() {
     }
     var arrA = document.getElementById("inputA").value;
     var arrB = document.getElementById("inputB").value;
-    var m = Number(document.getElementById("inputM").value);
-    var t = Number(document.getElementById("inputT").value);
+
+    var m = document.getElementById("inputM").value;
+    var t = document.getElementById("inputT").value;
+
+    if (!inputIsNumeric(m)){
+        alert("Please input numbers in the fields!");
+        return 0;
+    } else {
+        m = Number(m);
+    }
+
+    if (!inputIsNumeric(t)){
+        alert("Please input numbers in the fields!");
+        return 0;
+    } else {
+        t = Number(t);
+    }
 
     arrA = arrA.split(" ");
     arrB = arrB.split(" ");
@@ -32,6 +47,10 @@ function handleButtonClick() {
         }
     }
     for (var i = 0; i < arrA.length; i++) {
+        if (!inputIsNumeric(arrA[i])){
+            alert("Please input numbers in the fields!");
+            return 0;
+        }
         arrA[i] = Number(arrA[i]);
         if (arrA[i] > 15 || arrA[i] < 0) {
             alert("Please input number in the [0; 15] interval!");
@@ -40,6 +59,10 @@ function handleButtonClick() {
         arrA[i] = printBinary(decimalToBinary(arrA[i]));
     }
     for (var i = 0; i < arrB.length; i++) {
+        if (!inputIsNumeric(arrB[i])){
+            alert("Please input numbers in the fields!");
+            return 0;
+        }
         arrB[i] = Number(arrB[i]);
         if (arrB[i] > 15 || arrB[i] < 0) {
             alert("Please input number in the [0; 15] interval!");
