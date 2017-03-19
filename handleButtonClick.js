@@ -95,7 +95,6 @@ function handleButtonClick() {
         boolArrB[index] = getBoolArray(arrB[index]);
     }
 
-    var partSum = [];
     var res = [];
     var cellIndex = 0;
     var rowIndex = 0;
@@ -104,7 +103,6 @@ function handleButtonClick() {
     for (var i = 0; i < m; i++){
         step[i] = 0;
         res[i] = [];
-        partSum = [];
     }
     for (var elemIndex = 0; elemIndex < m; elemIndex++){
 
@@ -120,10 +118,11 @@ function handleButtonClick() {
 
 
                 if (step[j] == 7){
+                    resCell = table.rows[rowIndex-1].cells[cellIndex];
                     resCell.innerHTML = "<b>A:</b> "+binaryToDecimal(resToString(boolArrA[j]))+
                         "<br>"+"<b>B:</b> "+binaryToDecimal(resToString(boolArrB[j]))+
                         "<br>"+"<b>Result: </b>"+binaryToDecimal(resToString(res[j]))+"<br>"+
-                        "<b>Elapsed time:</b> "+time;
+                        "<b>Elapsed time:</b> "+(time-1);
                 } else {
                     resCell.innerHTML = "<b>A:</b> "+printBinary(resToString(boolArrA[j]))+
                         "<br>"+"<b>B:</b> "+printBinary(resToString(boolArrB[j]))+
@@ -146,10 +145,12 @@ function handleButtonClick() {
                 var resCell = table.rows[rowIndex].cells[cellIndex];
 
                 if (step[j] == 7){
+                    rowIndex--;
+                    resCell = table.rows[rowIndex].cells[cellIndex];
                     resCell.innerHTML = "<b>A:</b> "+binaryToDecimal(resToString(boolArrA[j]))+
                         "<br>"+"<b>B:</b> "+binaryToDecimal(resToString(boolArrB[j]))+
                         "<br>"+"<b>Result: </b>"+binaryToDecimal(resToString(res[j]))+"<br>"+
-                        "<b>Elapsed time:</b> "+time;
+                        "<b>Elapsed time:</b> "+(time-1);
                 } else {
                         resCell.innerHTML = "<b>A:</b> "+printBinary(resToString(boolArrA[j]))+
                             "<br>"+"<b>B:</b> "+printBinary(resToString(boolArrB[j]))+

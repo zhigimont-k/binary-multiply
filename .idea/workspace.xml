@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a8920e5e-086e-49ec-a1ab-e55022baf1b4" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/function.js" afterPath="$PROJECT_DIR$/function.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/handleButtonClick.js" afterPath="$PROJECT_DIR$/handleButtonClick.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -32,11 +30,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="handleButtonClick.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="handleButtonClick.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/handleButtonClick.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="307">
-              <caret line="26" column="5" lean-forward="true" selection-start-line="26" selection-start-column="5" selection-end-line="26" selection-end-column="5" />
+            <state relative-caret-position="319">
+              <caret line="161" column="9" lean-forward="true" selection-start-line="161" selection-start-column="9" selection-end-line="161" selection-end-column="9" />
               <folding />
             </state>
           </provider>
@@ -54,7 +52,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="function.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="function.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/function.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="229">
@@ -89,8 +87,8 @@
         <option value="$PROJECT_DIR$/getText.js" />
         <option value="$PROJECT_DIR$/buttonRedClick.js" />
         <option value="$PROJECT_DIR$/lab1.html" />
-        <option value="$PROJECT_DIR$/handleButtonClick.js" />
         <option value="$PROJECT_DIR$/function.js" />
+        <option value="$PROJECT_DIR$/handleButtonClick.js" />
       </list>
     </option>
   </component>
@@ -238,12 +236,12 @@
       <workItem from="1489494107357" duration="2417000" />
       <workItem from="1489520209000" duration="3114000" />
       <workItem from="1489948883138" duration="811000" />
-      <workItem from="1489950337646" duration="2269000" />
+      <workItem from="1489950337646" duration="4059000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="105927000" />
+    <option name="totallyTimeSpent" value="107717000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="1" />
@@ -603,18 +601,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/handleButtonClick.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="307">
-          <caret line="26" column="5" lean-forward="true" selection-start-line="26" selection-start-column="5" selection-end-line="26" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/function.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="229">
           <caret line="29" column="28" lean-forward="true" selection-start-line="29" selection-start-column="28" selection-end-line="29" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/handleButtonClick.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="319">
+          <caret line="161" column="9" lean-forward="true" selection-start-line="161" selection-start-column="9" selection-end-line="161" selection-end-column="9" />
           <folding />
         </state>
       </provider>
