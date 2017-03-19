@@ -18,18 +18,17 @@ function handleButtonClick() {
     var m = document.getElementById("inputM").value;
     var t = document.getElementById("inputT").value;
 
-    if (!inputIsNumeric(m)){
+    if (!inputIsNumber(m) || !inputIsNumber(t)){
         alert("Please input numbers in the fields!");
         return 0;
     } else {
         m = Number(m);
+        t = Number(t);
     }
 
-    if (!inputIsNumeric(t)){
+    if (!inputIsArrayOfNumbers(arrA) || !inputIsArrayOfNumbers(arrB)){
         alert("Please input numbers in the fields!");
         return 0;
-    } else {
-        t = Number(t);
     }
 
     arrA = arrA.split(" ");
@@ -47,7 +46,7 @@ function handleButtonClick() {
         }
     }
     for (var i = 0; i < arrA.length; i++) {
-        if (!inputIsNumeric(arrA[i])){
+        if (!inputIsArrayOfNumbers(arrA[i])){
             alert("Please input numbers in the fields!");
             return 0;
         }
@@ -59,7 +58,7 @@ function handleButtonClick() {
         arrA[i] = printBinary(decimalToBinary(arrA[i]));
     }
     for (var i = 0; i < arrB.length; i++) {
-        if (!inputIsNumeric(arrB[i])){
+        if (!inputIsArrayOfNumbers(arrB[i])){
             alert("Please input numbers in the fields!");
             return 0;
         }

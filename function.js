@@ -40,8 +40,12 @@ function printBinary(n) {
     return str;
 }
 
-function inputIsNumeric(str){
+function inputIsArrayOfNumbers(str){
     return (( /(^[\d\s]+$)/.test(str)));
+}
+
+function inputIsNumber(str){
+    return (( /(^[\d]+$)/.test(str)));
 }
 
 function getBoolArray(str){
