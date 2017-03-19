@@ -18,15 +18,12 @@ function handleButtonClick() {
     var t = Number(document.getElementById("inputT").value);
 
     arrA = arrA.split(" ");
-    if (arrA.length != document.getElementById("inputM").value) {
-        alert("Please input "+m+" elements or change the M value!");
-        return 0;
-    }
     arrB = arrB.split(" ");
-    if (arrB.length != document.getElementById("inputM").value) {
+    if (arrA.length != m || arrB.length != m) {
         alert("Please input "+m+" elements or change the M value!");
         return 0;
     }
+
     var table = document.getElementById("table");
     var rowCount = table.getElementsByTagName("tr").length;
     if (rowCount > 1) {
