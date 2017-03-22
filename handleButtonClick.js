@@ -71,7 +71,7 @@ function handleButtonClick() {
     }
 
 
-    for (var rowIndex = 1; rowIndex <= 8+(m-1); rowIndex++) {
+    for (var rowIndex = 1; rowIndex <= 6+m; rowIndex++) {
         i = rowIndex - 1;
         var row = table.insertRow();
         var cell = row.insertCell(0);
@@ -109,21 +109,21 @@ function handleButtonClick() {
         time+=t;
 
         for (var j = elemIndex; j >= 0; j--){
-            cellIndex = step[j]+1;
-            res[j] = pipeline(res[j], boolArrA[j], boolArrB[j], step[j]);
             if (step[j] < 8){
+                cellIndex = step[j]+1;
+                res[j] = pipeline(res[j], boolArrA[j], boolArrB[j], step[j]);
                 rowIndex = j + step[j] + 1;
-                var resCell = table.rows[rowIndex].cells[cellIndex];
 
 
 
                 if (step[j] == 7){
-                    resCell = table.rows[rowIndex-1].cells[cellIndex];
+                    var resCell = table.rows[rowIndex-1].cells[cellIndex];
                     resCell.innerHTML = "<b>A:</b> "+binaryToDecimal(resToString(boolArrA[j]))+
                         "<br>"+"<b>B:</b> "+binaryToDecimal(resToString(boolArrB[j]))+
                         "<br>"+"<b>Result: </b>"+binaryToDecimal(resToString(res[j]))+"<br>"+
-                        "<b>Elapsed time:</b> "+(time-1);
+                        "<b>Elapsed time:</b> "+(time-t);
                 } else {
+                    var resCell = table.rows[rowIndex].cells[cellIndex];
                     resCell.innerHTML = "<b>A:</b> "+printBinary(resToString(boolArrA[j]))+
                         "<br>"+"<b>B:</b> "+printBinary(resToString(boolArrB[j]))+
                         "<br>"+"<b>Result: </b>"+printBinary(resToString(res[j]))+"<br>"+
@@ -138,20 +138,20 @@ function handleButtonClick() {
         time+=t;
 
         for (var j = m-1; j >= 0; j--){
-            cellIndex = step[j]+1;
-            res[j] = pipeline(res[j], boolArrA[j], boolArrB[j], step[j]);
             if (step[j] < 8){
+                cellIndex = step[j]+1;
+                res[j] = pipeline(res[j], boolArrA[j], boolArrB[j], step[j]);
                 rowIndex = j + step[j] + 1;
-                var resCell = table.rows[rowIndex].cells[cellIndex];
 
                 if (step[j] == 7){
                     rowIndex--;
-                    resCell = table.rows[rowIndex].cells[cellIndex];
+                    var resCell = table.rows[rowIndex].cells[cellIndex];
                     resCell.innerHTML = "<b>A:</b> "+binaryToDecimal(resToString(boolArrA[j]))+
                         "<br>"+"<b>B:</b> "+binaryToDecimal(resToString(boolArrB[j]))+
                         "<br>"+"<b>Result: </b>"+binaryToDecimal(resToString(res[j]))+"<br>"+
-                        "<b>Elapsed time:</b> "+(time-1);
+                        "<b>Elapsed time:</b> "+(time-t);
                 } else {
+                    var resCell = table.rows[rowIndex].cells[cellIndex];
                         resCell.innerHTML = "<b>A:</b> "+printBinary(resToString(boolArrA[j]))+
                             "<br>"+"<b>B:</b> "+printBinary(resToString(boolArrB[j]))+
                             "<br>"+"<b>Result: </b>"+printBinary(resToString(res[j]))+"<br>"+
