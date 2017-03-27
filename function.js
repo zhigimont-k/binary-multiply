@@ -40,6 +40,24 @@ function printBinary(n) {
     return str;
 }
 
+function printBinaryRes(str){
+    if ((str.length % 4)){
+        if (str.length % 4 === 1) {
+        //str = str.replace(/(\d)(?=(\d\d\d\d)+([^\d]|$))/g, '$1 ');
+        return("000" + str.substring(0, 1) + " " + str.substring(1));
+    }
+        if (str.length % 4 === 2) {
+            //str = str.replace(/(\d)(?=(\d\d\d\d)+([^\d]|$))/g, '$1 ');
+            return("00" + str.substring(0, 2) + " " + str.substring(2));
+        }
+        if (str.length % 4 === 3) {
+            //str = str.replace(/(\d)(?=(\d\d\d\d)+([^\d]|$))/g, '$1 ');
+            return("0" + str.substring(0, 3) + " " + str.substring(3));
+        }
+    }
+    return ("0000 "+str);
+}
+
 function inputIsArrayOfNumbers(str){
     return (( /(^[\d\s]+$)/.test(str)));
 }
