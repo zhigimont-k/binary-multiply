@@ -72,12 +72,6 @@ function handleButtonClick() {
     for (var rowIndex = 1; rowIndex <= 6+m; rowIndex++) {
         i = rowIndex - 1;
         var row = table.insertRow();
-        //var cell = row.insertCell(0);
-        /*if (rowIndex <= m) {
-            cell.innerHTML = "<b>A</b> = " + printBinary(arrA[i]) + "<br>" +
-                "<b>B</b> = " + printBinary(arrB[i]) + "<br>" +
-                "<b>Time:</b> " + time;
-        }*/
 
         for (var cellIndex = 0; cellIndex < 9; cellIndex++) {
             row.insertCell(cellIndex);
