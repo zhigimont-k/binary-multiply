@@ -5,8 +5,7 @@
 
 function handleButtonClick() {
     var time = 0;
-    if (!document.getElementById("inputM").value ||
-        !document.getElementById("inputT").value ||
+    if (!document.getElementById("inputT").value ||
         !document.getElementById("inputA").value ||
         !document.getElementById("inputB").value) {
         alert("Please fill in all the text fields!");
@@ -15,14 +14,12 @@ function handleButtonClick() {
     var arrA = document.getElementById("inputA").value;
     var arrB = document.getElementById("inputB").value;
 
-    var m = document.getElementById("inputM").value;
     var t = document.getElementById("inputT").value;
 
-    if (!inputIsNumber(m) || !inputIsNumber(t)){
+    if (!inputIsNumber(t)){
         alert("Please input numbers in the fields!");
         return 0;
     } else {
-        m = Number(m);
         t = Number(t);
     }
 
@@ -33,10 +30,11 @@ function handleButtonClick() {
 
     arrA = arrA.split(" ");
     arrB = arrB.split(" ");
-    if (arrA.length != m || arrB.length != m) {
-        alert("Please input "+m+" elements or change the M value!");
+    if (arrA.length != arrB.length) {
+        alert("Please input equal number of elements");
         return 0;
     }
+    var m = arrA.length;
 
     var table = document.getElementById("table");
     var rowCount = table.getElementsByTagName("tr").length;
@@ -96,6 +94,7 @@ function handleButtonClick() {
     }
 
     var res = [];
+    var previousRes = [];
     var cellIndex = 0;
     var rowIndex = 0;
     var step = [];
@@ -103,21 +102,19 @@ function handleButtonClick() {
     for (var i = 0; i < m; i++){
         step[i] = 0;
         res[i] = [];
+        previousRes[i] = [];
     }
+
     for (var elemIndex = 0; elemIndex < m; elemIndex++){
 
 
         time+=t;
 
-        //if (elemIndex == 2) alert("Test");
         if (elemIndex < m-1 && step[elemIndex] == 0){
-            if (elemIndex > 0) alert(elemIndex);
             rowIndex = elemIndex+1;
             var resCell = table.rows[rowIndex].cells[0];
-            //if (elemIndex == 2) alert("!!!");
             resCell.innerHTML = "A["+elemIndex+"] = "+ binaryToDecimal(resToString(boolArrA[elemIndex]))+"<br>"+
                 "B["+elemIndex+"] = "+ binaryToDecimal(resToString(boolArrB[elemIndex]))+"<br>"+"<b>Queue:</b><br>";
-            //resCell.innerHTML = "TEST";
             for (var k = elemIndex+1; k < m; k++){
                 resCell.innerHTML+="A["+k+"] = "+ binaryToDecimal(resToString(boolArrA[k]))+", "+
                     "B["+k+"] = "+ binaryToDecimal(resToString(boolArrB[k]))+"<br>";
@@ -127,7 +124,11 @@ function handleButtonClick() {
         for (var j = elemIndex; j >= 0; j--){
             if (step[j] < 8){
                 cellIndex = step[j]+1;
+                previousRes[j] = printBinaryRes(resToString(res[j]));
                 res[j] = pipeline(res[j], boolArrA[j], boolArrB[j], step[j]);
+                if (step[j] == 0){
+                    previousRes[j] = "0000 "+previousRes[j];
+                }
                 rowIndex = j + step[j] + 1;
 
 
@@ -141,7 +142,9 @@ function handleButtonClick() {
                     var resCell = table.rows[rowIndex].cells[cellIndex];
                     resCell.innerHTML = "<b>A:</b> "+printBinary(resToString(boolArrA[j]))+
                         "<br>"+"<b>B:</b> "+printBinary(resToString(boolArrB[j]))+
-                        "<br>"+"<b>Result: </b>"+printBinaryRes(resToString(res[j]))+"<br>"+
+                        "<br>"+
+                            "<b>Previous result: </b>"+previousRes[j]+"<br>"+
+                        "<b>Result: </b>"+printBinaryRes(resToString(res[j]))+"<br>"+
                         "<b>Time:</b> "+time;
                 }
                 step[j]++;
@@ -155,6 +158,7 @@ function handleButtonClick() {
         for (var j = m-1; j >= 0; j--){
             if (step[j] < 8){
                 cellIndex = step[j]+1;
+                previousRes[j] = printBinaryRes(resToString(res[j]));
                 res[j] = pipeline(res[j], boolArrA[j], boolArrB[j], step[j]);
                 rowIndex = j + step[j] + 1;
 
@@ -167,10 +171,12 @@ function handleButtonClick() {
                         "<b>Elapsed time:</b> "+(time-t);
                 } else {
                     var resCell = table.rows[rowIndex].cells[cellIndex];
-                        resCell.innerHTML = "<b>A:</b> "+printBinary(resToString(boolArrA[j]))+
-                            "<br>"+"<b>B:</b> "+printBinary(resToString(boolArrB[j]))+
-                            "<br>"+"<b>Result: </b>"+printBinaryRes(resToString(res[j]))+"<br>"+
-                            "<b>Time:</b> "+time;
+                    resCell.innerHTML = "<b>A:</b> "+printBinary(resToString(boolArrA[j]))+
+                        "<br>"+"<b>B:</b> "+printBinary(resToString(boolArrB[j]))+
+                        "<br>"+
+                        "<b>Previous result: </b>"+previousRes[j]+"<br>"+
+                        "<b>Result: </b>"+printBinaryRes(resToString(res[j]))+"<br>"+
+                        "<b>Time:</b> "+time;
                 }
                 step[j]++;
             }
