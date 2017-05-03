@@ -130,16 +130,14 @@ function handleButtonClick() {
                     var resCell = table.rows[rowIndex-1].cells[cellIndex];
                     resCell.innerHTML = "<b>A:</b> "+binaryToDecimal(resToString(boolArrA[j]))+
                         "<br>"+"<b>B:</b> "+binaryToDecimal(resToString(boolArrB[j]))+
-                        "<br>"+"<b>Result: </b>"+binaryToDecimal(resToString(res[j]))+"<br>"+
-                        "<b>Elapsed time:</b> "+(time-t);
+                        "<br>"+"<b>Result: </b>"+binaryToDecimal(resToString(res[j]));
                 } else {
                     var resCell = table.rows[rowIndex].cells[cellIndex];
                     resCell.innerHTML = "<b>A:</b> "+printBinary(resToString(boolArrA[j]))+
                         "<br>"+"<b>B:</b> "+printBinary(resToString(boolArrB[j]))+
                         "<br>"+
                             "<b>Previous result: </b>"+previousRes[j]+"<br>"+
-                        "<b>Result: </b>"+printBinaryRes(resToString(res[j]))+"<br>"+
-                        "<b>Time:</b> "+time;
+                        "<b>Result: </b>"+printBinaryRes(resToString(res[j]));
                 }
                 step[j]++;
             }
@@ -161,20 +159,25 @@ function handleButtonClick() {
                     var resCell = table.rows[rowIndex].cells[cellIndex];
                     resCell.innerHTML = "<b>A:</b> "+binaryToDecimal(resToString(boolArrA[j]))+
                         "<br>"+"<b>B:</b> "+binaryToDecimal(resToString(boolArrB[j]))+
-                        "<br>"+"<b>Result: </b>"+binaryToDecimal(resToString(res[j]))+"<br>"+
-                        "<b>Elapsed time:</b> "+(time-t);
+                        "<br>"+"<b>Result: </b>"+binaryToDecimal(resToString(res[j]));
                 } else {
                     var resCell = table.rows[rowIndex].cells[cellIndex];
                     resCell.innerHTML = "<b>A:</b> "+printBinary(resToString(boolArrA[j]))+
                         "<br>"+"<b>B:</b> "+printBinary(resToString(boolArrB[j]))+
                         "<br>"+
                         "<b>Previous result: </b>"+previousRes[j]+"<br>"+
-                        "<b>Result: </b>"+printBinaryRes(resToString(res[j]))+"<br>"+
-                        "<b>Time:</b> "+time;
+                        "<b>Result: </b>"+printBinaryRes(resToString(res[j]));
                 }
                 step[j]++;
             }
         }
+    }
+    var timeOutput = 0;
+    for (var rowIndex = 1; rowIndex <= 6+m; rowIndex++) {
+        var resCell = table.rows[rowIndex].cells[0];
+        timeOutput +=t;
+        resCell.innerHTML += "<br><b>Time:</b> "+timeOutput;
+
     }
 
     for (var i = 0; i < res.length; i++){
